@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ita">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Git & GitHub</title>
+</head>
+
+<body>
+    <div id="bordo">
+        <h1>Git</h1>
+        <div class="ph">
+            <header>
+                <h2>Che cos'è Git?</h2>
+            </header>
+            <p>Git è una controllo di versione di sistema (Version control system/VCS) <mark>free e open source</mark>
+                Per <ins>controllo di versione</ins> si intende:
+                <br> la gestione di modifiche ai documenti, programmi del computer, grossi siti web e altre raccolte di
+                informazioni.
+                <br><mark>Quindi è un sistema che registra, nel tempo i cambiamenti ad un file o ad una serie di
+                    file, cosi da poter richiamare una specifica versione in un secondo momento.</mark>
+
+                <br>Mentre un VCS ti permette di ripristinare i file ad una versione precedente, ripristinare l'intero
+                progetto a uno stato precedente, revisonare le modifiche nel tempo , vedere i cambiamenti fatti da
+                terzi, chi ha introdotto un problema e quando e molto altro ancora.
+                <br>Usare un VCS, in generale, significa anche che se fai un pasticcio, ad esemepio,
+                perdere/cancellare/eliminare qualche file puoi facilemente recuperalo senza faticare troppo.
+                <br>Quindi in sostanza i programmmatori tengono traccia delle modifiche del loro codice; salvano una
+                versione iniziale di esso in git, poi quando lo aggiornano lo salvano sempre in git e questa operazione
+                viene ripetuta sempre più volte(potenzialmente fino all'infinito).
+                Questi salvattaggi non sono solo utili per salvare le modifiche ma permettono di ri-tornare suoi propri
+                passi per vedere i vari passaggi, questo ci aiuta a capire e vedere cosa abbiamo fatto.
+                <br>Tutto ciò puo essere utile anche quando dobbiamo rintracciare dei bug o per tornare a una versione
+                precedente del codice.
+                <br>Esistono diversi software che permettono di utillizare il controllo di versione, quello più usato è
+                Git.
+                Essendo un sistema di controllo distribuito ci permette di lavorare ai vari progetti anche senza avere
+                una connessione internet, questo perchè all'interno della nostra repository locale abbiamo tutti le
+                modifiche fatte da noi stessi o da altre persone.
+                <br>
+                <img src="/Media/Photo/CV distribuito.png" height="500px" width="400px"
+                    alt="Controllo di Versione Distribuito" title="Controllo di Versione Distribuito">
+                <br>Questo sistema è molto più conveniente rispetto ad un sistema centralizato, dove bisogna avere un
+                server centrale nel quale salvare tutte queste informazioni.
+                <img src="/Media/Photo/Central CVS.jpg" height="350px" width="290px" alt="Sistema Centralizato"
+                    title="Sistema Centralizato">
+                <br>N.B. se lavoriamo in un team o più semplicemente vogliamo rendere pubblico il nostro
+                progetto, chiunque scaricherà la repository avrà localmente sulla sua macchina tutte le modifiche
+                apportate fino a quel momento.
+
+
+            <div class="info">
+                <img src="/Media/Photo/lente di ingradimento.jpg" height="40px" width="50px"
+                    alt="lente di ingrandimento">
+                <h2>Termini tecnici</h2>
+                <ul>
+                    <li>Directory → Folder</li>
+                    <li>Terminal o Command Line(Linea di comando) → Interface for Text Commands(Interafaccia per i
+                        comandi di testo):
+                        <br>
+                        in parole povere è un'applicazione che viene eseguita sul tuo computer che è semplicemente
+                        un'interfaccia in cui si può digitare i comandi di testo. In pratica si può navigare tra file e
+                        cartelle, creare file, modificare ed aggiornare quello che vuoi, installare ed eseguire
+                        programmi, etc.
+                    </li>
+                    <li>CLI → Command Line Interface (Interfaccia della linea di comando):
+                        <br>
+                        è l'interfaccia delle riga di comando. Molti programmi che installi, in quanto programmmatore ti
+                        chiederanno di interagire tramite comandi di testo nella riga di comando; in pratica digiti il
+                        testo e premi invio invece di fare doppio clik sull'icona di una cartella sul desktop.
+                        Quindi bisogna pensarlo come un altro modo di eseguire un programma
+                    </li>
+                    <li>CD → Change Directory:
+                        <br>
+                        In parole povere è un commando che ti permette di spostare tra le directory sia principali che
+                        non, una volta dato questo comando devi dare anche le indicazioni per raggiungere qualsiasi
+                        directory del tuo sistema.
+                    </li>
+                    <li>Code Editor → Word Processor for Writing Code:
+                        <br>è un editor di codice (es: Visual studio Code)
+                    </li>
+                    <li>Repository → Progetto o cartella/posto dove il progetto è conservato:
+                        <br>
+                        la parola repository ha molteplici significati, nel mondo della programmazione di solito viene
+                        usata per indicare una repository git.
+                    </li>
+                    <li>Github:
+                        <br>
+                        è un sito web in cui ospiti tutti i tuoi repository git.
+                        <br>Il fatto che sia online ti permette di lavorare in gruppo con altre persone e organizzare i
+                        tuoi progetti in un portfolio da mostrare ai potenziali datori di lavoro.
+                    </li>
+                    <li>Git:
+                        <br>
+                        è lo strumento che tiene traccia delle modifiche apportate al tuo codice nel tempo
+                    </li>
+                </ul>
+            </div>
+            <h2>Git Commands</h2>
+            Andiamo a spiegare i vari commandi di Git che digiteremo nel temrinale o nella riga di comando del computer.
+            <br>(N.B.Tutti questi comandi vanno scritti in minuscolo e non maiuscolo )
+            <ol>
+                <li>Per creare una repository per git in locale ci sono 2 modi:
+                    <ul type="A">
+                        <br>
+                        <li>tasto destro del mouse → nuova cartella (o ctrl+ shift+N)</li>
+                        <li>oppure tramite il terminale di git ( per aprirlo tasto destro del mouse → git bash) →
+                            digitare,
+                            sulla riga di comando del terminale, mkdir + il nome della directory che si vuole creare.
+                        </li>
+                    </ul>
+                </li>
+                <li> ls -a:
+                    <br>è il comando che mostra la lista dei file contenuto dentro le directory. Il parametro -a
+                    serve per
+                    andare ad inserire dentro la lista anche eventuali file nascosti
+                </li>
+                <li>Clone:
+                    <br>i cloni sono, ad esempio, le repository che non si trovano localmente sul pc ma su Github e,
+                    tramite questo comando, vengono clonate per essere poi installate sul tuo host.
+                </li>
+                <li>clear:
+                    <br>serve per pulire la nostra command lines per ripartire con una finestra pulita del terminale
+                    Bash.
+                </li>
+                <li>git init:
+                    <br>questo comando serve per inizializzare git. In pratica crea una sotto directory, dentro la
+                    nostra directory principale, nominandola .git. Se abbiamo la visualizzazione dei file e cartelle
+                    nascosti non abilita non visuelizzeremo neanche questa directory, per abilitare questa funzione
+                    aprire il media explore → tab visualizza → sezione mostra/nascondi → spuntare la casella "elementi
+                    nascosti".
+                </li>
+                <div class="info">
+                    <img src="/Media/Photo/lente di ingradimento.jpg" height="40px" width="50px" alt="">
+                    <img src="/Media/Photo/puntoesclamativo.jpg" height="40px" width="50px" alt="">
+                    <h2>La cartella .git</h2>
+                    <p>In questa cartella è contenuto tutta la history dei nostri salvataggi effetuati durante lo
+                        sviluppo del progetto, se mai volessimo ripartire da zero basta solo cancellare la cartella .git
+                        N.B. Rara procedura, meglio evitare
+                        Se apriamo questa directory possiamo notare come al suo interno si trovino delle sub-directory e
+                        dei file, tutto questo serve a git per creare la timeline con tutti i vari salvataggi </p>
+                </div>
+                <li>
+                    touch + "nome file".txt:
+                    <br>questo comando crea un file di testo
+                </li>
+                <li>
+                    echo + le parole che voglio aggiungere > "nome file".txt:
+                    <br>creo un file nel frattempo che aggiungo contenuto.
+                </li>
+                <li>
+                    cat +"nomefile".txt :
+                    <br>questo comando mostra il contenuto del file di testo
+                </li>
+                A questo punto abbiamo aggiunto un file, ma Git ancora che abbiamo aggiunto questo file nella working
+                directory e per verificarlo
+                <li>
+                    git status:
+                    <br>questo commando serve per mostrare l'attuale stato dei file all'interno del nostro progetto
+                    <br><img src="/Media/Photo/Git Status.png" height="50%" width="40%"
+                        alt="Caratteristiche del comando Git status " title="Caratteristiche del comando Git stauts">
+                </li>
+                <br>Esaminando questa foto possiamo vedere che ci troviamo nel <a href="">branch</a> master, non sono
+                stati ancora aggiunti commits ed il file in rosso vuole dire non è stato ancora aggiunto allo staging o
+                all'index di Git.
+                Inoltre nelle ultime due righe di commando ci dice pure come aggiungere questo file all'index di Git
+                tramite al commando git add.
+                <li>git add:
+                    traccia i tuoi file e li cambia in Git.
+                    <br>Questo comando è utile per quando devi cancellare i file localmente e vuoi che anche Git tracci
+                    queste modifiche.
+                    <br> Se scriviamo git add .; il punto siginifica che vogliamo aggiungere tutti i file
+                    indiscriminatamente.
+                    <br>Se voglio invece aggiungere solo alcuni file o un file specifico devo scrivere solo il/i nome/i
+                    del/i file.
+                    <br>Se voglio aggiungere un set di file (ad esempio solo i file .txt) devo scrivere
+                    *.txt/*.CSS/etc.; l'asterisco sta ad indicare che vado ad aggiungere qualsiasi file con quella
+                    estensione.
+                    <br>
+                    <img src="/Media/Photo/Git Add.png" height="50%" width="40%"
+                        alt="Caratteristiche del comando git add" title="Caratteristiche del comando git add">
+                </li>
+                Come possiamo notare dall'immagine ora il file è colorato di verde e mi conferma che è stato aggiunto
+                all'index di Git, ma non è stato ancora effettuato nessun commit e mi da una indicazione che mi dice che
+                ci sono alcuni cambiamenti che possono essere commitati.
+                <li>git commit:
+                    <br>Salva i tuoi file in Git(difatti si dice commit changes).
+                    <br> Se si usa il commando Git commit senza digitare nient'altro si apre l'editor impostato di
+                    default dal nostro sistema operativo all'interno della Shell (a seconda del sistema operativo può
+                    essere VIM o Vema).
+                    <br>N.B. è possibile impostare un altro editor di default, per usare l'editor di default bisogna
+                    usare i comandi da tastiera
+                </li>
+                <div class="info">
+                    <img src="/Media/Photo/lente di ingradimento.jpg" height="40px" width="50px" alt="">
+                    <h2>Commandi da tastiera per l'editor di default</h2>
+                    <p>
+                        i: per aggiungere del testo per descrivere la nostra commit.
+                        <br>Il testo verra inserito nella riga in alto, e tutto questo testo che è preceduto prima del
+                        cancelletto si chiama "commento" e non verrà considerato da Git.
+                        <br> <img src="/Media/Photo/command i.png" height="40%" width="39%" alt="">
+                        <br>Una volta inserito il commento andiamo a premere il tasto esc:
+                        <br>ci fa uscire dalla modalità scrittura.
+                        <br>dopodichè digitiamo i tasti :wq, per semplificarci la vita sul terminale bash accanto al
+                        commando git commit mettiamo lo spazio e digitiamo -m "" e tra le virgolette mettiamo il
+                        commento che vogliamo aggiungere.
+                    </p>
+                </div>
+                Il testo che mettiamo tra viroglette è obbligatorio, inoltre se fosse la nostra prima commit può anche
+                andare bene scrivere "first commit" mentre dalle commit successive e bene indicare con più precisione lo
+                scopo di quella commit. Questo va fatto anche nell'ottica che se dovessi mai andare a ricecare nella
+                repository le varie commit antecedenti mi sarà più facile ritrovare quella/e che mi servono risparmiando
+                tempo e senza fare troppa fatica.
+                Per fare ciò potrei pensare di utilizzare la seconda parte del messaggio che diventerà la mia
+                descrizione.
+                <br>N.B. committate abbastanza spesso, ma senza svilluppare un DOC per la commit, tuttavia più commit si
+                fanno più ci è facile tornare indietro nel tempo in punti più precisi poichè l'ideale sarebbe avere più
+                salvattaggi per andare avanti o indietro fra i vari commit.
+                <br> Se dopo la commit digitassimo git status potremmo vedere che la nostra directory è sgombra, non c'è
+                nulla da aggiungere, e non ci sono commit da eseguire.
+                <div class="info">
+                    <img src="/Media/Photo/lente di ingradimento.jpg" height="40px" width="50px" alt="">
+                    <h2>Come funzionano le commit in git</h2>
+                    <p>
+                        <img src="/Media/Photo/Schema commit.png" height="40%" width="30%" alt="Schema commit">
+                        <br>Seguendo questo schema cercheremo di capire meglio il meccanismo di quello che abbiamo fatto
+                        fino ad adesso usando i comandi git add e git commit:
+                        <br>partendo dal basso verso l'alto, vediamo la working directory dove sono contentuti i nostri
+                        file/subdirectory che, tramite il comando git add, vengono messi [n.d.r. per usare un tecnicismo
+                        si dice in cash ] nella staging area o index di git. Questi file/subdirectory non sono state
+                        ancora commitate ma sono state messe in una zona temporanea la quale serve per mettere insieme
+                        questi file ed subdirectory che poi andremo a salvare con la commit.
+                        <br>La Staging Area quindi non è altro che questa zona temporanea nella quale vengono riposti
+                        questi file che poi andremo a salvare.
+                        <br> Quando invece commitiamo andiamo a creare una istantanea o "fotografia" dello stato
+                        auttuale del codice dei nostri file, che volendo, come già detto prima, possiamo riutilizzare in
+                        futuro nel caso dovessimo tornare indietro nel caso dovessimo fare delle modifiche.
+                        <br> [ n.d.r. Ovviamente possiamo sia andare in una direzione che in un altra, cioè posso sia
+                        aggiungere dalla working directory
+                        dei file all'index sia rimuoverli come posso anche sia commitarli che rimuovere le commit
+                        effetuate.]
+                        <br>Quindi <mark>le
+                            varie commit effetuate vanno a formare la history del nostro progetto. </mark>
+                        <br>
+                        <img src="/Media/Photo/Schema Commit2.png" height="40%" width="30%" alt="Schema Commit 2">
+                    </p>
+                </div>
+                Ora che sappiamo come creare dei file, aggiungerli all'index e commitarli andiamo a vedere come fare i
+                passaggi inversi:
+                <li>
+                    git --rm cached "nome":
+                    <br>questo commando rimuove la copia del file dall'Index/Staging Area ripotandola nella working
+                    directory, senza toccare però la copia
+                    della working tree.
+                    <br>Di conseguenza nella nuova commit effettuata mancherà il file indicato in questo commando;
+                    quindi se nella commit corrente il file è presente, nella nuova commit mancherà quel determinato
+                    file.
+                </li>
+                <li>git restore --staged + "nome file":
+                    <br> questo comando copia il file dal HEAD commitati dentro l'indice, senza toccare la copia del
+                    working tree.
+                    <br>La copia dell'index e quella del HEAD sono matchcciate indipendentemente dal fatto se erano
+                    accopiati prima.
+                    Quindi una nuova commit effettuata avrà la stessa copia del file cosi come c'è l'aveva la commit
+                    corrente
+                    <br>N.B. Questo commando viene spesso confuso con il commando git rm --cached perchè <mark><i>nel
+                            caso in cui nella commit corrente manchi il file, esso avrà l'effetto di rimuovere il file
+                            dall'index.</i></mark> Quindi in questo caso funzionerà come git rm --cached
+                    <br>
+                    <div class="info">
+                        <img src="/Media/Photo/lente di ingradimento.jpg" height="40px" width="40px" alt="">
+                        <h2>Info Tecniche</h2>
+                        <p>
+                            Può esserti utile sapere che il commando git reset file copia la versione del file presente
+                            nel HEAD nell'Index, esattamente come git restore --staged file.
+                            <br>Tuttavia è bene notare che git restore, a differenza di questa particolare forma di git
+                            reset, può sovrascrivire la copia della working tree di alcuni file, se gli dici di farlo.
+                            Di conseguenza l'opzione --staged, senza l'opzione --worktree, lo indirizza a scrivere solo
+                            all'indice.
+                        </p>
+                    </div>
+                    <br>
+                    <div class="info">
+                        <img src="/Media/Photo/lente di ingradimento.jpg" height="40px" width="40px" alt="">
+                        <h2>Differenza tra working tree, Index ed Head</h2>
+                        <p>
+                            Working tree (working directory, workspace):
+                            <br>è la workspace locale dove vengono posti i file sorgente che posso editare e
+                            visualizzare
+                            <br>L'Index di Git:
+                            <br>è dove vengono posti i file che vuoi salvare nella repository di Git. Quindi, come visto
+                            prima l'index è una staging area dove i file appena aggiunti vengono posti in attesa che
+                            venga effettuata la commit.
+                            <br>HEAD:
+                            <br>l'HEAD è una reference dell'ultima commit nel branch corrente, possiamo dire che è un
+                            puntantore che punta all'ultima commit effettuata nel branch o ramo in cui ci troviamo in
+                            questo momento(nel mio caso punta al branch main).
+                        </p>
+                        <img src="/Media/Photo/Esempio HEAD.png" alt="Esempio HEAD">
+                    </div>
+                    <!-- approfondire la questione e capire perchè non mi funziona tuttavia da notare come a OOdeveloper una volta fatto il git status 
+                    gli consiglia di usare questo comando per togliere questo file dall'index, mentre a me consiglia git rm --cached <file>   -->
+                </li>
+                <li>
+                    git log:
+                    <br>Serve per vedere la history list dei commit eseguiti, più altre informazioni(è giusto sapere che
+                    git salva ogni commit effettuata all'interno del suo database in un formato chiave-valore dove la
+                    chiave è la stringa affianco alla scritta commit).
+                    <br>
+                    <div class="info">
+                        <img src="/Media/Photo/lente di ingradimento.jpg" height="40px" width="40px" alt="">
+                        <h2>Scia 1</h2>
+                        <p>lo scia 1 è una stringa lunga 40 caratteri e serve per generare chiavi univoche che
+                            serviranno per evitare che ci siano conflitti fra le varie Commit.
+                            <br>Questa chiave viene generata prendendo il contenuto dei file su cui noi abbiamo fatto la
+                            commit
+                        </p>
+                    </div>
+                    Per ogni commit ci vengono fornite altre informazioni come l'autore, la data e il testo(cioè il
+                    messaggio; titolo e descrizione) che è stato
+                    aggiunto alla commit.
+                    <br>
+                    <br>
+                    <img src="/Media/Photo/Esempio HEAD.png" alt="">
+                </li>
+                <li>
+                    cat .git/HEAD:
+                    <br>Questo comando serve per verificare, all'interno del file HEAD stesso, su quale branch è puntato
+                    l'HEAD.
+                    <br>
+                    <img src="/Media/Photo/Esempio HEAD.png" alt="">
+                    <br>Possiamo vedere che all'interno del file c'è la referenza a main che a sua volta fa riferimento
+                    all'ultimo commit eseguito su questo branch.
+                </li>
+                Git log accetta varie opzioni tra cui
+                <li>
+                    git log --oneline:
+                    <br>l'opzioni per compattare il log che viene stampato nella console. Le varie commit vengono
+                    visualizzate cronologicamente dal basso verso l'alto in ordine ascendente(dalla prima alla ultima
+                    commit effettuata).
+                    <br>Quindi utilizzando questa opzione visualizzeremo il log un pò più compatto che ci dara comunque
+                    le informazioni necessarie (l'id della commit, branch che stiamo utilizzando e titolo della commit).
+                    Questo torna utile quando abbiamo tante commit e dobbiamo cercarne una in particolare
+                </li>
+                <li>
+                    git log --oneline --reverse:
+                    <br>cambia l'ordine in cui sono stampati i vari commit, vengono visualizzate cronologicamente
+                    dall'alto verso il basso.
+                </li>
+                <li>push:
+                    <br>carica i commit di Git in una repository remota, come Github
+                </li>
+                <div class="info">
+                    <img src="/Media/Photo/puntoesclamativo.jpg" height="40px" width="50px" alt="">
+                    <h2>Facciamo il punto </h2>
+                    <p>Una volta aver apportato le modifiche localmente diciamo a git di monitorarle tramite il comando
+                        add, dopodichè salvi il/i file tramite il comando commit, infine bisogna caricare questi file in
+                        una repository remota (GitHub, Bitbucket, get lab,etc.) e lo si fa tramite il comando push.
+                    </p>
+                </div>
+                <li>pull:
+                    <br>è l'opposto di push; scarica le modifiche dalla repository remota al host.
+                </li>
+            </ol>
+            Andiamo a vedere nello specifico come applicare questi comandi su Github:
+            <br>Prima di tutto bisogna registrarsi al sito, dopodichè si accede al tuo profilo e per creare una
+            repository ci sono 2 modi:
+            <ol>
+                <li>cliccare sull'icona del gatto in alto a sinistra che ti porta alla pagina di dashboard → sempre
+                    sulla sinistra si trova un pulsante verde con scritto new → cliccandoci sopra ti pota alla pagina
+                    per creare una repository. </li>
+                <li>In alto a destra, dopo la navbar, si trova un'icona con il piu → cliccandoci sopra si apre una
+                    tendina di pop-up dove la prima voce è "New Repository". </li>
+            </ol>
+            Quindi la repository in sostanza è un progetto che contiene tutti i file e cartelle di codifica di qualsiasi
+            progetto tu stia costruendo.
+            <br>una volta creata la repository tutto i file e documenti che sono nel host possono essere spostati nella
+            repository appena creata oppure posso crearli online direttamente sul sito di GitHub.
+            </p>
+        </div>
+        <div class="ph">
+            <h2>Creare file di Markdown su GitHub</h2>
+            <p>
+                Per creare un file di markdown online su git hub bisogna andare sull link "creating new file" che si
+                trova nel riquadro "Quick Setup - if you've done this kind of thing before", proprio sotto questo
+                titolo.
+                <br>N.B. Tutta questa operazione la si fa una volta creata la nuova repository, poichè dopo aver
+                cliccato
+                su create nella pagina dedicata per creare una repository, vieni trasferito alla seguente pagina.
+                Una volta creato lo andro a nominare dopodiche posso scriverci sopra (l'intestazione la si richiama con
+                l'hastag).
+                <br>Per salvare il file cliccare in alto a destra il tasto "commit new file"→ una volta cliccato
+                apparirà
+                una finestra dove in alto c'è una casella nella quale se non si scrive nulla userà il testo segnaposto
+                per nominare il file.
+            </p>
+            <div class="ph">
+                <h2>Clone, add, commit e push da Visual Studio Code a una Repo Git</h2>
+                <h3>Clone Git File</h3>
+                <p>Tramite questo Code Editor posso accedere a un terminale interno tramite il menù Terminal → New
+                    Terminal (Ctrl + shift + ò).
+                    <br>per clonare ed estrare una repository da github:
+                    <br>bisogna rimanare sul terminale locale (in
+                    questo caso su powershell) → menù file → open folder → dopodiche su terminale ci troveremo scritto
+                    (PS C:\Users\user\Documents\Programmazione\Git & GitHub\demo clone>) → digitare git clone → andare
+                    su git hub all'interno della repository → andare su code > tab clone e copiare l'indirizzo che
+                    trovate → tornate sul terminale di visual studio code → incollate l'indirizzo → premete invio → e
+                    cosi il file viene estratto da github sul vostro computer.
+                    <!-- Nota: Gwen anzichè copiare l'indirizzo http ha copiato l'indirizzo SSH. Perchè? -->
+                    <br>
+                <h3>Git Add </h3>
+                Git Add è il comando che ti permette di aggiungere un file alla repository Git.
+                <br>Molte persone scrivino nella riga di commando git add .: il punto in questo caso va a significare
+                che stai dicendo a Git di tenere traccia di tutti i file elencati, ma puoi anche indicargli solo i nomi
+                di ogni singolo file o cartella (es: git add index.html) in questo modo git traccerà solo quel file o
+                directory.
+                <h3>Git Commit -m</h3>
+                dopo aver fatto il git add dobbiamo salvare i salvattaggi:
+                <br>nella riga di commando del terminale scrivere git commit -m; questo ultimo comando è per il
+                messaggio e devi un messaggio per poter committare i tuoi file.
+                Quindi: git commit -m "added index.html file" ad esempio, il messaggio potrebbe contenere anche solo un
+                carattere
+                senza alcun significato, ma deve esserci sempre il messaggio!!!
+                Questo perche indica cosa hai aggiunto e perchè; questo è solo il titolo del messaggio se ci volessi
+                aggiungere una descrizione dovrei aggiungere un ulteriore -m "" e scrivere tra le virgolette una
+                descrizione.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

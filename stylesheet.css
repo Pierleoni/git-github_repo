@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --ligthdarkWB: #123;
+    --textc: #fff;
+    --h1: #000;
+    --h2c: #670; 
+    --grey: rgb(72, 72, 73);
+    --lightblue: rgb(98, 140, 182);
+    --fdlx: linear-gradient(to left, var(--grey), var(--lightblue));
+    --fdrx: linear-gradient(to right, var(--grey), var(--lightblue));
+
+
+
+}
+html{
+    font-family: 'Comfortaa', sans-serif;
+}
+
+html,body{
+    margin:0;
+    padding: 0;
+}
+body{
+    background-color: var(--ligthdarkWB);
+    color: var(--textc);
+}
+h1,h2,h3{
+    color: var(--h1);
+    font-weight: 700;
+}
+#bordo{
+    margin: 1rem;
+    padding: 1rem;
+    border: 5px dotted var(--grey);
+    border-radius: 10px;
+}
+.info{
+    background-color: var(--grey);
+    border: 1px solid;
+    border-radius: 0.5rem;
+}
