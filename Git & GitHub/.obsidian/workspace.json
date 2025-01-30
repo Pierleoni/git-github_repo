@@ -104,8 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 305.5,
-    "collapsed": true
+    "width": 305.5
   },
   "right": {
     "id": "8ef8bc59cd79fc10",
@@ -251,10 +250,10 @@
   },
   "active": "cea1178d58996a62",
   "lastOpenFiles": [
-    "Git & Github/Termini Tecnici.md",
-    "Git & Github/Commandi di git.md",
     "Git & Github/Git & Git Hub.md",
+    "Git & Github/Commandi di git.md",
     "Binary Tree Data Structure.md",
+    "Git & Github/Termini Tecnici.md",
     "Immagini/Path to understand directory vs folder.png",
     "Immagini/command i.png",
     "Immagini/Schema commit.png",

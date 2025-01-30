@@ -1,4 +1,4 @@
-Git Comands
+## Git Comands
 
 Andiamo a spiegare i vari comandi di Git che digiteremo nel terminale o nella riga di comando del computer.  
 
@@ -135,6 +135,10 @@ Il comando `clear` è utile per avere uno schermo pulito, ma non influisce sulla
 Questo comando inizializza una nuova repository di Git nella directory corrente, creando una nuova sub-directory nominata `.git`:  
 questa sub-directory contiene tutti i metadata necessari per le nuove repository.  ^d4295a
 
+```bash
+git init
+```
+
 > [!info] Abilitare la visualizzazione delle cartelle nascoste
 > Se abbiamo la visualizzazione dei file e cartelle nascosti non abilita non visualizzeremo neanche questa directory, per abilitare questa funzione aprire il media explore → tab visualizza → sezione mostra/nascondi → spuntare la casella "elementi nascosti".
 
@@ -191,12 +195,8 @@ questo commando serve per mostrare l'attuale  stato corrente della directory di 
 Visualizza le informazioni su quali file sono stati modificati, aggiunti o cancellati e se tali modifiche sono in stage per la prossima commit
 ![[Git Status.png]]
   
-Esaminando questa foto possiamo vedere che ci troviamo nel branch master, non sono stati ancora aggiunti commits ed il file in rosso vuole dire non è stato ancora aggiunto allo staging o all'index di Git. Inoltre nelle ultime due righe di commando ci dice pure come aggiungere questo file all'index di Git tramite al commando git add.13. git add: traccia i tuoi file e li cambia in Git.  
-    Questo comando è utile per quando devi cancellare i file localmente e vuoi che anche Git tracci queste modifiche.  
-    Se scriviamo git add .; il punto siginifica che vogliamo aggiungere tutti i file indiscriminatamente.  
-    Se voglio invece aggiungere solo alcuni file o un file specifico devo scrivere solo il/i nome/i del/i file.  
-    Se voglio aggiungere un set di file (ad esempio solo i file .txt) devo scrivere *.txt/*.CSS/etc.; l'asterisco sta ad indicare che vado ad aggiungere qualsiasi file con quella estensione.  
-    ![[Git Add.png]]
+Esaminando questa foto possiamo vedere che ci troviamo nel branch master, non sono stati ancora aggiunti commits ed il file in rosso vuole dire non è stato ancora aggiunto allo staging o all'index di Git. Inoltre nelle ultime due righe di commando ci dice pure come aggiungere questo file all'index di Git tramite al commando git add.  
+![[Git Add.png]]
 Come possiamo notare dall'immagine ora il file è colorato di verde e mi conferma che è stato aggiunto all'index di Git, ma non è stato ancora effettuato nessun commit e mi da una indicazione che mi dice che ci sono alcuni cambiamenti che possono essere commitati.14. git commit:  
     Salva i tuoi file in Git(difatti si dice commit changes).  
     Se si usa il commando Git commit senza digitare nient'altro si apre l'editor impostato di default dal nostro sistema operativo all'interno della Shell (a seconda del sistema operativo può essere VIM o Vema).  
@@ -211,11 +211,9 @@ Il testo verra inserito nella riga in alto, e tutto questo testo che è precedut
 ![[command i.png]]  
 Una volta inserito il commento andiamo a premere il tasto esc:  
 ci fa uscire dalla modalità scrittura.  
-dopodichè digitiamo i tasti :wq, per semplificarci la vita sul terminale bash accanto al commando git commit mettiamo lo spazio e digitiamo -m "" e tra le virgolette mettiamo il commento che vogliamo aggiungere.
+dopodichè digitiamo i tasti :wq, 
 
-Il testo che mettiamo tra viroglette è obbligatorio, inoltre se fosse la nostra prima commit può anche andare bene scrivere "first commit" mentre dalle commit successive e bene indicare con più precisione lo scopo di quella commit. Questo va fatto anche nell'ottica che se dovessi mai andare a ricecare nella repository le varie commit antecedenti mi sarà più facile ritrovare quella/e che mi servono risparmiando tempo e senza fare troppa fatica. Per fare ciò potrei pensare di utilizzare la seconda parte del messaggio che diventerà la mia descrizione.  
-N.B. committate abbastanza spesso, ma senza svilluppare un DOC per la commit, tuttavia più commit si fanno più ci è facile tornare indietro nel tempo in punti più precisi poichè l'ideale sarebbe avere più salvattaggi per andare avanti o indietro fra i vari commit.  
-Se dopo la commit digitassimo git status potremmo vedere che la nostra directory è sgombra, non c'è nulla da aggiungere, e non ci sono commit da eseguire.
+
 
 
 ## La working directory e la staging Area 
@@ -224,7 +222,7 @@ Se dopo la commit digitassimo git status potremmo vedere che la nostra directory
 Seguendo questo schema, partendo dal basso verso l'alto, cercheremo di capire meglio il meccanismo di quello che abbiamo fatto fino ad adesso:
 immaginiamo la struttura di Git suddivisa in 3 aree di lavoro:
 
-1. La prima area èla working directory:
+1. La prima area è la working directory:
    È la cartella locale dove si hanno i file del progetto, qui si apportano le modifiche ai file.
    Quindi nella working directory  sono contenuti i nostri file/sub-directory che, tramite il comando [[#Git add|git add]], vengono messi 
 
@@ -234,13 +232,29 @@ immaginiamo la struttura di Git suddivisa in 3 aree di lavoro:
    nella staging area o index di git. 
    Questi file/sub-directory non sono state ancora committate ma sono state messe in una zona temporanea la quale serve per mettere insieme questi file ed sub-directory che poi andremo a salvare con la commit.
    Quindi questo è anche il luogo dove Git memorizza la cronologia dei commit:
-   con il comando [[`git commit`]] le modifiche dalla staging area vengono slavate nella repository locale. 
+   con il comando [[#Git commit|`git commit`]] le modifiche dalla staging area vengono salvate nella repository locale. 
 2. la seconda area è la Staging Area:
    È un'area temporanea dove prepari le modifiche che desideri includere nel prossimo commit. 
    Quindi questa non è altro che questa zona temporanea nella quale vengono riposti questi file che poi andremo a salvare.  
-3. Repository remota (o History):
+3. Repository locale o remota (o History):
+   La differenza tra la repository locale e/o remota è:
+   1) La **repository locale**: 
+      è il luogo in cui vengono salvati i commit, ovvero le "istantanee" del progetto nel tempo.
+  A questo punto bisogna introdurre anche l'**HEAD:**
+   ==È un riferimento (reference) all'ultimo commit nel branch corrente.== 
+   ==Possiamo considerarlo un puntatore che, di default, indica sempre l'ultima commit del branch attivo (nel tuo caso, il branch `main`).==   
+   Tuttavia, HEAD può anche puntare direttamente a un commit specifico (detto "detached HEAD"), permettendo di navigare nella cronologia senza essere legati a un branch.  ^head-def
+
+   Con il comando [[#Git commit|`git commit`]], le modifiche dalla Staging Area vengono salvate nella repository locale e HEAD si aggiorna.
+   Invece la repository remota è: 
    la copia del tuo progetto su un server remoto, come GitHub. 
-   Utilizzi [[`git push`]] per inviare i tuoi commit dalla repository locale a quella remota. 
+   E per inviare le modifiche dalla repository locale a quella remota si utilizza il comando [[#Git Push|`git push`]] 
+   
+> [!deep] Approfondimento
+> - `git checkout main` → HEAD punta all'ultima commit del branch `main`.
+>- `git checkout <commit-hash>` → HEAD entra in modalità **detached**, puntando direttamente a quel commit.
+
+   Utilizzi [[#Git Push|`git push`]] per inviare i tuoi commit dalla repository locale a quella remota. 
    
 > [!example] Esempio di flusso di lavoro
 > 1. Modifica i file nella tua working directory.
@@ -259,6 +273,7 @@ immaginiamo la struttura di Git suddivisa in 3 aree di lavoro:
 Quindi ==le varie commit effettuate vanno a formare la history del nostro progetto.==  
 ![[Schema Commit2.png|400]]
 
+### Git init 
 
 ### Git add
 Il comando `git add` è utilizzato per aggiungere modifiche alla staging area (o index) in Git. Questo è un passaggio fondamentale nel flusso di lavoro di Git, poiché consente di preparare i file che desideri includere nel prossimo commit.
@@ -283,13 +298,180 @@ Detto ciò ci sono vari esempi di utilizzo che si possono fare per il `git add`:
    Inserisce la modalità interattiva di aggiunta dei file. 
    Fornisce un menu interattivo basato sul testo in cui è possibile selezionare varie azioni da eseguire, come la messa in scena di singole modifiche, l'aggiornamento dei file o visualizzare lo stato.
 
+### Git commit
+Il comando `git commit` è uno dei comandi fondamentali di Git e viene utilizzato per registrare le modifiche apportate ai file nel tuo repository locale. Quando esegui un commit, stai creando una "istantanea" del tuo progetto in un determinato momento, che può essere successivamente recuperata o confrontata con altre versioni.
+#### Sintassi di base 
+```bash
+git commit -m "Messaggio del commit"
+```
+
+#### Opzioni comuni
+- `-m"messaggio"`:
+  Specifica un messaggio di commit in linea. 
+  È importante fornire un messaggio chiaro e descrittivo che spieghi le modifiche apportate.
+Il testo che mettiamo tra virgolette è obbligatorio, inoltre se fosse la nostra prima commit può anche andare bene scrivere "first commit" mentre dalle commit successive e bene indicare con più precisione lo scopo di quella commit. Questo va fatto anche nell'ottica che se dovessi mai andare a ricercare nella repository le varie commit antecedenti mi sarà più facile ritrovare quella/e che mi servono risparmiando tempo e senza fare troppa fatica. Per fare ciò potrei pensare di utilizzare la seconda parte del messaggio che diventerà la mia descrizione.  
+> [!info] N.B.
+>  È consigliato committare abbastanza spesso, ma senza sviluppare un D.O.C. per la commit, tuttavia più commit si fanno più ci è facile tornare indietro nel tempo in punti più precisi poichè l'ideale sarebbe avere più salvataggi per andare avanti o indietro fra i vari commit.  
+> Se dopo la commit digitassimo `git status` potremmo vedere che la nostra directory è sgombra, non c'è nulla da aggiungere, e non ci sono commit da eseguire.
+
+- `-a`: 
+  Aggiunge automaticamente tutti i file tracciati che sono stati modificati al commit. Non include i file non tracciati.
+```bash
+  git commit -a -m "Messaggio del commit"
+```
+
+- `--amend`: 
+  Modifica l'ultimo commit. Torna utile utilizzare questa opzione se desideri aggiungere modifiche all'ultimo commit invece di crearne uno nuovo.
+```bash
+  git commit --amend -m "Nuovo messaggio del commit"
+```
+
+- `--no-edit`: 
+  Utilizzato con `--amend`, mantiene il messaggio di commit originale senza modificarlo.
+  
+```bash
+ git commit --amend --no-edit 
+```
+
+#### Importanza del Messaggio di Commit
+
+È buona pratica scrivere messaggi di commit chiari e significativi. Un buon messaggio di commit aiuta te e gli altri membri del team a comprendere le modifiche apportate nel tempo. Un messaggio di commit dovrebbe rispondere a domande come:
+
+- Cosa è stato cambiato?
+- Perché è stato cambiato?
+- Qual è l'impatto di queste modifiche?
+
+### Git log 
+Il comando `git log` è utilizzato per visualizzare la cronologia dei commit nel tuo repository Git. 
+Permette di vedere un elenco di tutti i commit effettuati, insieme a informazioni dettagliate su ciascun commit, come l'autore, la data e il messaggio di commit. 
+È uno strumento fondamentale per comprendere la storia del tuo progetto e per tracciare le modifiche nel tempo.
+ 
+#### Sintassi di base
+```bash
+git log
+```
+
+#### Opzioni comuni 
+- `oneline`: 
+  Mostra ogni commit su una sola riga, visualizzando solo l'ID del commit abbreviato e il messaggio di commit.
+```bash
+  git log --oneline
+```
+
+- `--graph`: 
+  Mostra un grafico ASCII della cronologia dei commit, utile per visualizzare i branch e le fusioni.
+```bash
+ git log --graph 
+```
+
+- `--decorate`: 
+  Mostra i riferimenti (come i nomi dei branch e dei tag) accanto ai commit.
+```bash
+git log --decorate
+```
+
+> [!info] Combinazione di opzioni
+> Puoi combinare le opzioni per ottenere una visualizzazione più informativa.
+>```bash
+> git log --oneline --graph --decorate
+>```
+
+- **`-n <numero>`**: 
+  Limita il numero di commit visualizzati. 
+  Ad esempio, per vedere solo gli ultimi 5 commit:
+```bash
+git log -n 5 
+```
+
+- **`--author=<nome>`**: 
+  Filtra i commit per autore. 
+  Ad esempio, per vedere solo i commit di un autore specifico:
+```bash
+git log --author="Nome Autore"
+```
+
+- **`--since` e `--until`**: 
+  Filtra i commit in base a date specifiche. 
+  Ad esempio, per vedere i commit effettuati dopo una certa data fino ad un'altra data:
+```bash
+git log --since="2023-01-01" --until="2023-12-31"
+```
+
+- **`--grep=<pattern>`**: 
+  Filtra i commit in base a un pattern nel messaggio di commit. 
+  Ad esempio, per trovare commit che contengono la parola "bug":
+```bash
+git log --grep="bug"
+```
+
+Grazie a questo comando quindi è possibile esplorare la cronologia dei commit nel tuo repository e utilizzando le varie opzioni disponibili, puoi personalizzare la visualizzazione della cronologia per ottenere le informazioni di cui hai bisogno in modo chiaro e conciso.
+
+### Git Push
+Il comando `git push` è utilizzato per inviare le modifiche locali (commits) dalla repository locale a un repository remoto, come GitHub, GitLab o Bitbucket. Questo comando è fondamentale per condividere il tuo lavoro con altri membri del team o per mantenere una copia aggiornata del tuo progetto su un server remoto.
+
+#### Sintassi di base
+```bash
+git push <remote> <branch>
+```
+
+- **`<remote>`**: 
+  Il nome del repository remoto. 
+> [!NOTE] Di solito, il nome predefinito è `origin`
+ 
+- **`<branch>`**: 
+  Il nome del branch che desideri inviare. 
+> [!NOTE] Di solito, il nome predefiniti è `main` o `master`
+
+### Esempi di utilizzo 
+1. `git push origin main`: 
+   invia il branch `main` al Remote `origin` 
+```bash
+git push origin main
+```
+
+2. `git push --all origin`: 
+   Invia tutti i branch locali al repository remoto.
+```bash
+git push --all origin
+```
+3. `git push --tags`: 
+   Invia i tag al repository remoto
+```bash
+ git push --tags  
+```
+
+4. `git push --force origin main`: 
+   Forza un Push. 
+   Utile quando hai bisogno di sovrascrivere il branch remoto con le modifiche locali.
+> [!Attention] questo può causare la perdita di dati nel repository remoto
+
+```bash
+git push --force origin main
+```
+
+5. `git push -u origin nome-del-nuovo-branch`:
+   Push di un Nuovo Branch. 
+   Utile quando si crea un nuovo branch e si desidera inviarlo al repository remoto.
+```bash
+git push -u origin nome-del-nuovo-branch 
+```
+
+L'opzione `-u` (o `--set-upstream`) imposta il branch remoto come upstream per il branch locale, facilitando i futuri push e pull.
+
+
+> [!faq] Errori comuni 
+> - **Rejection**: Se ricevi un messaggio di errore che indica che il push è stato rifiutato, potrebbe essere necessario eseguire un `git pull` per integrare le modifiche remote nel tuo branch locale prima di poter eseguire il push.
+   > 
+>- **Conflitti**: Se ci sono conflitti tra le modifiche locali e quelle remote, dovrai risolverli prima di poter eseguire il push.
+
+Questi appena elencati sono la serie di comandi base per [[Commandi di git#Git init|inizializzare]], [[#Git add|aggiungere]], [[Commandi di git#Git commit|committare]] e [[Commandi di git#Git Push|pushare]] una repository locale e inviare i file alla repository remota. 
 Ora che sappiamo come creare dei file, aggiungerli all' index e commitarli andiamo a vedere come fare i passaggi inversi:
-19. `git --rm cached "nome"`:  
-    questo commando rimuove la copia del file dall'Index/Staging Area ripotandola nella working directory, senza toccare però la copia della working tree.  
-    Di conseguenza nella nuova commit effettuata mancherà il file indicato in questo commando; quindi se nella commit corrente il file è presente, nella nuova commit mancherà quel determinato file.
-20. `git restore --staged + "nome file"`:  
-    questo comando copia il file dal HEAD commitati dentro l'indice, senza toccare la copia del working tree.  
-    La copia dell' index e quella del HEAD sono matchiate indipendentemente dal fatto se erano accoppiati prima. Quindi una nuova commit effettuata avrà la stessa copia del file cosi come c'è l'aveva la commit corrente  
+ `git --rm cached "nome"`:  
+questo commando rimuove la copia del file dall'Index/Staging Area ripotandola nella working directory, senza toccare però la copia della working tree.  
+Di conseguenza nella nuova commit effettuata mancherà il file indicato in questo commando; quindi se nella commit corrente il file è presente, nella nuova commit mancherà quel determinato file.
+ `git restore --staged + "nome file"`:  
+questo comando copia il file dal HEAD commitati dentro l'indice, senza toccare la copia del working tree.  
+La copia dell' index e quella del HEAD sono matchiate indipendentemente dal fatto se erano accoppiati prima. Quindi una nuova commit effettuata avrà la stessa copia del file cosi come c'è l'aveva la commit corrente  
 
 > [!info] N.B.
 >  Questo commando viene spesso confuso con il commando git rm --cached perchè ==_nel caso in cui nella commit corrente manchi il file, esso avrà l'effetto di rimuovere il file dall'index._== Quindi in questo caso funzionerà come git rm --cached  

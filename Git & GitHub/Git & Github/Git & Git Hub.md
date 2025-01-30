@@ -37,7 +37,7 @@ Working tree (working directory, workspace):
 L'Index di Git:  
 è dove vengono posti i file che vuoi salvare nella repository di Git. Quindi, come visto prima l'index è una staging area dove i file appena aggiunti vengono posti in attesa che venga effettuata la commit.  
 HEAD:  
-l'HEAD è una reference dell'ultima commit nel branch corrente, possiamo dire che è un puntantore che punta all'ultima commit effettuata nel branch o ramo in cui ci troviamo in questo momento(nel mio caso punta al branch main).
+
 
 ![[Esempio HEAD.png]]
 

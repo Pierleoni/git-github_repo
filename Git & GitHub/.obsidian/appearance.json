@@ -4,7 +4,8 @@
   "textFontFamily": "Helvetica",
   "baseFontSize": 18,
   "enabledCssSnippets": [
-    "stylesheet"
+    "stylesheet",
+    "Obsidianstylesheet"
   ],
   "cssTheme": ""
 }
