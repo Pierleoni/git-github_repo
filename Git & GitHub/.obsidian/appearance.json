@@ -7,5 +7,6 @@
     "stylesheet",
     "Obsidianstylesheet"
   ],
-  "cssTheme": ""
+  "cssTheme": "",
+  "showRibbon": true
 }

@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git & Github/Git & Git Hub.md",
+                "file": "Git & Github/Comandi di git.md",
                 "mode": "source",
-                "backlinks": false,
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Git & Git Hub"
+              "title": "Comandi di git"
             }
           },
           {
@@ -28,17 +28,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git & Github/Commandi di git.md",
+                "file": "Git & Github/Git & Git Hub.md",
                 "mode": "source",
-                "backlinks": false,
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Commandi di git"
+              "title": "Git & Git Hub"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -57,7 +56,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -248,10 +248,10 @@
       "quickadd:QuickAdd": false
     }
   },
-  "active": "cea1178d58996a62",
+  "active": "8750b560a41176ec",
   "lastOpenFiles": [
     "Git & Github/Git & Git Hub.md",
-    "Git & Github/Commandi di git.md",
+    "Git & Github/Comandi di git.md",
     "Binary Tree Data Structure.md",
     "Git & Github/Termini Tecnici.md",
     "Immagini/Path to understand directory vs folder.png",
